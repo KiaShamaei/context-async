@@ -4,12 +4,13 @@ import AppContext from './AppContext';
 
 
 
-const Child = () => {
+const Child = (props) => {
 	const context = useContext(AppContext);
+	console.log(context.data,context.loading)
 
 	return ( 
 	<div>
-		{!context.loading ? <p>loading data is happen ....</p> : context.data.map(item=><p>{item.title}</p>)}
+		{context.loading ? <p>loading data is happen ....</p> : context.data.map(item=><p>{item.title}</p>)}
 
 	</div> );
 }
